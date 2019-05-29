@@ -1,0 +1,84 @@
+= Microprofile GraphQL runner
+
+== Objectives
+This project enables to deploy, run and test a MicroProfile GraphQL application on any Java/Jakarta EE 8 platform such as GlassFish 5.1.
+
+It aims at being an incubator for the TCK.
+
+It is based on a CDI extension which detects GraphQLApi classes and starts a Servlet to expose the API on top of HTTP.
+
+It has been developped as a Web application using GlassFish 5.1 It has also been tested on OpenLiberty 19.0.5 and Payara-5.191.
+
+Its tests are based on the TCK principles using a dynamic GraphQL client.
+
+== Status of Eclipse MicroProfile GraphQL
+
+MicroProfile GraphQL is an Eclipse project, started in December 2018, to define a standard API to develop GraphQL applications following a code first approach. Code-first means that the GraphQL schema is not defined upfront but is derived from the Java code at application startup.
+
+The current API is made of  https://github.com/eclipse/microprofile-graphql/tree/master/api/src/main/java/org/eclipse/microprofile/graphql[14 annotations].
+
+The project is still under development but you can already give it a try:
+
+. the project is available on  https://github.com/eclipse/microprofile-graphql[GitHub],
+. a first version of the API has been published https://mvnrepository.com/artifact/com.graphql-java/graphql-java[on Maven Central],
+. a first prototype implementation is provided by spqr. It is available on GitHub https://github.com/leangen/graphql-spqr/tree/microprofile-proto[in the microprofile-proto branch],
+. a https://github.com/andymc12/SuperHeroDatabase[SuperHero demo] application has been developped. So far, this demo was limited to a patched version of OpenLiberty. This project enables to run it on other platforms.
+
+
+So everything is in place to play around with it.
+
+== How to
+
+=== Preambles
+
+First off, you need to have a JDK (>=8) and Maven (3.5) installed.
+
+More precisely, this project has been developped with:
+
+. Maven 3.6.1,
+. OpenJDK 11.0.3 with OpenJ9.
+
+Beware that to run GlassFish 5.1 or Payara 5-191, a Java SE 8 version is needed (Java SE 11 not yet supported).
+
+
+
+=== Installing
+
+The following steps must be achieved:
+
+. clone spqr microprofile-proto branch from on GitHub  https://github.com/leangen/graphql-spqr/tree/microprofile-proto[in the microprofile-proto branch],
+. build and install it locally,
+. clone this repo,
+. build and install it locally,
+. download https://projects.eclipse.org/projects/ee4j.glassfish/downloads[GlassGFish 5.1] or any Java EE 8 platform to deploy the war file,
+. you are free to use your favorite IDE to change the source code. In particular the HeroFinder class which exposes the API.
+
+If you change the code, beware that at least one @GraphQLApi class is expected to start the application.
+
+=== Testing
+
+In its current form, the tests make use of a remote Arquillian connector for GlassFish/Payara. A GlassFish/Payara server must be started to run them.
+
+You are free to adapt the Arquillian connector to any other platform.
+
+=== Running
+
+The war file containing the SuperHero application is fully Java/Jakarta EE 8 compliant and can be deployed on any application server.
+
+== Description
+
+For the sake of simplicity and independance from the current TCK project, this project duplicates some elements of the TCK.
+
+In particular, it has its own copy of:
+
+. SuperHero application,
+. GraphQLDynamicClientTest.
+
+This enables to change and test everything locally without depending on an external project.
+
+== Next tests
+
+The following next steps have been  identified:
+
+. test on TomEE and Wildfly,
+. test more deeply the API.
