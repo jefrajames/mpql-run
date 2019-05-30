@@ -1,0 +1,24 @@
+{
+  "data": {
+    "__type": {
+      "name": "Team",
+      "description": "A team made of super heros",
+      "fields": [
+        {
+          "name": "members",
+          "type": {
+            "name": null,
+            "description": null
+          }
+        },
+        {
+          "name": "name",
+          "type": {
+            "name": "String",
+            "description": "Built-in String"
+          }
+        }
+      ]
+    }
+  }
+}

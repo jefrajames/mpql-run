@@ -1,0 +1,59 @@
+{
+  "data": {
+    "__schema": {
+      "types": [
+        {
+          "name": "SuperHero"
+        },
+        {
+          "name": "__TypeKind"
+        },
+        {
+          "name": "__Field"
+        },
+        {
+          "name": "Query"
+        },
+        {
+          "name": "__Schema"
+        },
+        {
+          "name": "SuperHeroInput"
+        },
+        {
+          "name": "__Type"
+        },
+        {
+          "name": "__EnumValue"
+        },
+        {
+          "name": "__DirectiveLocation"
+        },
+        {
+          "name": "String"
+        },
+        {
+          "name": "TeamInput"
+        },
+        {
+          "name": "UNREPRESENTABLE"
+        },
+        {
+          "name": "Team"
+        },
+        {
+          "name": "Mutation"
+        },
+        {
+          "name": "__InputValue"
+        },
+        {
+          "name": "Boolean"
+        },
+        {
+          "name": "__Directive"
+        }
+      ]
+    }
+  }
+}
