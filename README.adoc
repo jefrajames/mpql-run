@@ -7,7 +7,12 @@ It aims at being an incubator for the TCK.
 
 It is based on a CDI extension which detects GraphQLApi classes and starts a Servlet to expose the API on top of HTTP.
 
-It has been developped as a Web application using GlassFish 5.1 It has also been tested on OpenLiberty 19.0.5 and Payara-5.191.
+It has been developped as a Web application using GlassFish 5.1 It has also been tested on :
+
+. OpenLiberty 19.0.5
+. Payara-5.191,
+. TomEE plus 8.0.0-M2,
+. Wildfly 16.0.0.Final.
 
 Its tests are based on the TCK principles using a dynamic GraphQL client.
 
@@ -78,7 +83,7 @@ This enables to change and test everything locally without depending on an exter
 
 == Next tests
 
-The following next steps have been  identified:
+The following next steps have been identified:
 
-. test on TomEE and Wildfly,
-. test more deeply the API.
+. remove dependency to graphql-servlet,
+. more tests.
