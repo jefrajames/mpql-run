@@ -13,10 +13,10 @@ import org.eclipse.microprofile.graphql.Type;
 @InputFieldsOrder({"name", "realName", "primaryLocation", "superPowers", "teamAffiliations"})
 public class SuperHero {
 
-    // @InputField(value = "teamAffiliations", description = "The teams the super hero is affiliated to")
+     @InputField(value = "teamAffiliations", description = "The teams the super hero is affiliated to")
     private List<Team> teamAffiliations;
 
-    // @InputField(value = "teamAffiliations", description = "The super powers the super hero is supposed to have")
+     @InputField(value = "superPowers", description = "The super powers the super hero is supposed to have")
     private List<String> superPowers;
 
     @InputField(value = "primaryLocation", description = "Primary location of the super hero")

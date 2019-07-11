@@ -49,6 +49,7 @@ public class HeroFinder {
 	public Collection<Team> allTeams() {
 		return heroDB.getAllTeams();
 	}
+
 	@Mutation(description = "Creates a new hero")
 	public SuperHero createNewHero(@Argument(value="hero", description = "The hero to be created") SuperHero newHero) throws DuplicateSuperHeroException {
 		heroDB.addHero(newHero);
