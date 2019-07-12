@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>mpql-run</artifactId>
+    <groupId>org.jefrajames</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <packaging>war</packaging>
+
+  <artifactId>mp-graphql-sample</artifactId>
+  <name>MicroProfile GraphQL Sample application</name>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.tomee.maven</groupId>
+        <artifactId>tomee-maven-plugin</artifactId>
+        <version>${plugin.tomee.version}</version>
+        <configuration>
+          <tomeeVersion>${dependency.tomee.version}</tomeeVersion>
+          <tomeeClassifier>microprofile</tomeeClassifier>
+          <libs>
+            <!--<lib>javax:javaee-api:8.0</lib>-->
+            <!--<lib>com.sun.mail:javax.mail:1.6.0</lib>-->
+            <!--<lib>javax.activation:activation:1.1</lib>-->
+            <!--<lib>org.slf4j:slf4j-api:1.7.25</lib>-->
+            <!--<lib>org.slf4j:slf4j-jdk14:1.7.25</lib>-->
+
+            <lib>org.eclipse.microprofile.graphql:microprofile-graphql-api:1.0-M1</lib>
+            <lib>io.leangen.graphql:spqr:1.0.0-SNAPSHOT</lib>
+            <lib>net.dongliu:gson-java8-datatype:1.1.0</lib>
+
+            <!--<lib>com.fasterxml.jackson.core:jackson-databind:${jackson.version}</lib>-->
+            <!--<lib>com.fasterxml.jackson.core:jackson-core:${jackson.version}</lib>-->
+            <!--<lib>com.fasterxml.jackson.core:jackson-annotations:${jackson.version}</lib>-->
+
+            <lib>com.fasterxml.jackson.module:jackson-module-parameter-names:${jackson.version}</lib>
+            <lib>com.fasterxml.jackson.datatype:jackson-datatype-jdk8:${jackson.version}</lib>
+            <lib>com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jackson.version}</lib>
+
+            <lib>io.leangen.geantyref:geantyref:1.3.6</lib>
+            <lib>com.graphql-java:graphql-java:11.0</lib>
+            <lib>org.antlr:antlr4-runtime:4.7.1</lib>
+            <lib>com.graphql-java:java-dataloader:2.1.1</lib>
+            <lib>org.reactivestreams:reactive-streams:1.0.2</lib>
+            <lib>io.github.classgraph:classgraph:4.6.7</lib>
+            <lib>com.graphql-java-kickstart:graphql-java-servlet:7.1.1</lib>
+            <lib>com.google.guava:guava:20.0</lib>
+          </libs>
+          <systemVariables>
+            <openejb.jaxrs.providers.auto>true</openejb.jaxrs.providers.auto>
+          </systemVariables>
+        </configuration>
+        <executions>
+          <execution>
+            <id>executable-jar</id>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <phase>package</phase>
+            <configuration>
+              <attach>false</attach>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
