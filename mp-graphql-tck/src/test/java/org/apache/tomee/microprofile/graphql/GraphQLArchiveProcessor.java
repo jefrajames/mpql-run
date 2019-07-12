@@ -37,16 +37,17 @@ public class GraphQLArchiveProcessor implements ApplicationArchiveProcessor {
     public void process(Archive<?> applicationArchive, TestClass testClass) {
 
         if (applicationArchive instanceof WebArchive) {
-            WebArchive testDeployment = (WebArchive) applicationArchive;
 
-            String[] deps = {
-                    "org.jefrajames:mp-graphql", // The implementation
+            final WebArchive testDeployment = (WebArchive) applicationArchive;
+
+            final String[] deps = {
+                    "org.jefrajames:mp-graphql" // The implementation
             };
-            File[] dependencies = Maven.resolver().loadPomFromFile(new File("pom.xml")).resolve(deps).withTransitivity()
+            final File[] dependencies = Maven.resolver().loadPomFromFile(new File("pom.xml")).resolve(deps).withTransitivity()
                     .asFile();
 
             // Make sure it's unique
-            Set<File> dependenciesSet = new LinkedHashSet<>(Arrays.asList(dependencies));
+            final Set<File> dependenciesSet = new LinkedHashSet<>(Arrays.asList(dependencies));
             testDeployment.addAsLibraries(dependenciesSet.toArray(new File[dependenciesSet.size()]));
 
         }
